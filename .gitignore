@@ -1,0 +1,7 @@
+__pycache__
+.pytest_cache
+test-v2
+allure-results
+allure-report
+reports
+allure-test
