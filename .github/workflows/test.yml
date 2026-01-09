@@ -21,6 +21,9 @@ jobs:
         with:
           python-version: "3.14"
 
+      - name: Install Playwright Browsers
+        run: playwright install
+
       - name: Install dependencies
         run: pip install -r requirements.txt
 
