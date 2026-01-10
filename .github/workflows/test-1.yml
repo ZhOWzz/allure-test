@@ -37,7 +37,7 @@ jobs:
         run: |
           pytest \
             --alluredir=allure-results \
-            --clean-alluredir || echo "PYTEST_FAILED=true" >> $GITHUB_ENV
+            --clean-alluredir || (echo "PYTEST_FAILED=true" >> $GITHUB_ENV)
 
       - name: Install Allure CLI
         run: npm install -g allure-commandline --save-dev
@@ -71,6 +71,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: allure-report
 
-      # - name: Fail pipeline if tests failed
-      #   if: steps.pytest.outcome == 'failure'
-      #   run: exit 1
+      - name: Fail pipeline if tests failed
+        if: steps.pytest.outputs.failed == 'true'
+        run: exit 1
