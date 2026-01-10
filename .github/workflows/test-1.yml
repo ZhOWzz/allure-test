@@ -35,7 +35,7 @@ jobs:
       - name: Run tests with pytest + allure
         id: pytest
         run: |
-          pytest tests \
+          pytest \
             --alluredir=allure-results \
             --clean-alluredir || echo "PYTEST_FAILED=true" >> $GITHUB_ENV
 
