@@ -27,17 +27,18 @@ jobs:
       - name: Install Playwright Browsers
         run: playwright install
 
-      # - name: Run tests with pytest + allure
-      #   run: pytest --alluredir=allure-results
-
       - name: Run tests with pytest + allure
-        id: pytest
-        run: |
-          set +e
-          pytest --alluredir=allure-results --clean-alluredir
-          echo "exit_code=$?" >> $GITHUB_OUTPUT
+        run: pytest --alluredir=allure-results
+
+      # - name: Run tests with pytest + allure
+      #   id: pytest
+      #   run: |
+      #     set +e
+      #     pytest --alluredir=allure-results --clean-alluredir
+      #     echo "exit_code=$?" >> $GITHUB_OUTPUT
 
       - name: Install Allure CLI
+        if: always()
         run: npm install -g allure-commandline --save-dev
 
       - name: Generate Allure Report
@@ -52,6 +53,7 @@ jobs:
       #     allure_report: allure-report
 
       - name: Upload Test Results
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-results
@@ -70,6 +72,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: allure-report
 
-      - name: Fail job if tests failed
-        if: steps.pytest.outputs.exit_code != '0'
-        run: exit 1
+      # - name: Fail job if tests failed
+      #   if: steps.pytest.outputs.exit_code != '0'
+      #   run: exit 1
