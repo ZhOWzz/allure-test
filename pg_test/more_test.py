@@ -128,7 +128,7 @@ def test_ct07_campos_vazios(page):
 def test_ct08_case_sensitive(page):
     acessar_login(page)
     page.wait_for_timeout(4500)
-    preencher_login(page, "", "ADMIN123")
+    preencher_login(page, "UserInvalid", "ADMIN123")
     page.wait_for_timeout(4500)
     
     visible = page.locator("text=Invalid credentials").is_visible()
