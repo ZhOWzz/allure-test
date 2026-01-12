@@ -36,25 +36,25 @@ jobs:
       #     set +e
       #     pytest --alluredir=allure-results --clean-alluredir
       #     echo "exit_code=$?" >> $GITHUB_OUTPUT
-
       - name: Install Allure CLI
         if: always()
         run: npm install -g allure-commandline --save-dev
 
-      # Baixa o histórico do relatório anterior (se existir)
-      - name: Download previous report
+        # Baixa o histórico do último relatório publicado
+      - name: Restore Allure history
         if: always()
-        uses: actions/download-artifact@v3
+        uses: actions/checkout@v4
         with:
-          name: allure-report
-          path: previous-report
+          ref: gh-pages
+          path: gh-pages
 
-      # Copia a pasta history para os novos resultados
-      - name: Copy history
+      # Copiar o histórico para dentro do allure-results
+      - name: Copy Allure history
         if: always()
         run: |
-          if [ -d previous-report/history ]; then
-            cp -r previous-report/history allure-results/
+          if [ -d gh-pages/history ]; then
+            mkdir -p allure-results/history
+            cp -r gh-pages/history/* allure-results/history/
           fi
 
       - name: Generate Allure Report
