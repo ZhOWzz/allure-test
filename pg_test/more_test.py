@@ -71,9 +71,9 @@ def test_ct04_usuario_senha_invalidos(page):
     assert visible, "Mensagem 'Invalid credentials' não exibida"
 
     if visible:
-        log_result("CT-04", "PASS")
+        log_result("CT-04", "PASS - Mensagem 'Invalid credentials' exibida corretamente")
     else:
-        log_result("CT-04", "FAIL")
+        log_result("CT-04", "FAIL - Mensagem 'Invalid credentials' não encontrada")
         
 
 
@@ -87,9 +87,9 @@ def test_ct05_usuario_vazio(page):
     assert visible, "Mensagem 'Required' não exibida"
 
     if visible:
-        log_result("CT-05", "PASS")
+        log_result("CT-05", "PASS - Mensagem \"Required\" exibida corretamente")
     else:
-        log_result("CT-05", "FAIL")
+        log_result("CT-05", "FAIL - Mensagem \"Required\" não encontrada")
         
 
 
@@ -119,9 +119,9 @@ def test_ct07_campos_vazios(page):
     assert count >= 1, "Mensagem 'Required' não exibida para campos vazios"
 
     if count >= 1:
-        log_result("CT-07", "PASS")
+        log_result("CT-07", "PASS - Mensagem \"Required\" exibida corretamente")
     else:
-        log_result("CT-07", "FAIL")
+        log_result("CT-07", "FAIL - Mensagem \"Required\" não encontrada")
         
 
 
@@ -135,9 +135,9 @@ def test_ct08_case_sensitive(page):
     assert visible, "Mensagem 'Invalid credentials' não exibida"
 
     if visible:
-        log_result("CT-08", "PASS")
+        log_result("CT-08", "PASS - Login é case sensitive")
     else:
-        log_result("CT-08", "FAIL")
+        log_result("CT-08", "FAIL - Login não é case sensitive")
         
 
 
