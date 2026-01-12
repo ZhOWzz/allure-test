@@ -44,7 +44,7 @@ jobs:
       # Baixa o histórico do relatório anterior (se existir)
       - name: Download previous report
         if: always()
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: allure-report
           path: previous-report
