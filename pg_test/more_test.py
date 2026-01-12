@@ -32,16 +32,16 @@ def test_ct01_login_valido(page):
 def test_ct02_senha_invalida(page):
     acessar_login(page)
     page.wait_for_timeout(4500)
-    preencher_login(page, VALID_USER, "password123")
+    preencher_login(page, VALID_USER, "")
     page.wait_for_timeout(4500)
 
     visible = page.locator("text=Invalid credentials").is_visible()
     assert visible, "Mensagem 'Invalid credentials' não exibida"
     
     if visible:
-        log_result("CT-02", "PASS", "- Mensagem exibida corretamente")
+        log_result("CT-02", "PASS", "- Mensagem 'Invalid credentials' exibida corretamente")
     else:
-        log_result("CT-02", "FAIL", "- Mensagem não encontrada")
+        log_result("CT-02", "FAIL", "- Mensagem 'Invalid credentials' não encontrada")
         
 
 
