@@ -65,6 +65,6 @@ jobs:
         run: |
           echo "## 📊 Allure Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "🔗 https://dulley-vz.github.io/allure-test-video-duley/" >> $GITHUB_STEP_SUMMARY
+          echo "🔗 https://dulley-vz.github.io/allure-test-images/" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "_Relatório será atualizado automaticamente após o deploy_" >> $GITHUB_STEP_SUMMARY
