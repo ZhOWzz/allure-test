@@ -8,3 +8,5 @@ allure-test
 test-report
 test-results
 test-1.yml
+ci-pr-allure-OTIMIZADO.yml
+deploy-allure-OTIMIZADO.yml
